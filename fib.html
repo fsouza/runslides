@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first RunSlide presentation</title>
+    <meta charset='utf-8'>
+    <script src='/static/run.js'></script>
+    <script src='/static/slides.js'></script>
+  </head>
+
+<!--
+
+The presentation consists of slides. Each slide is defined as article.
+See static/styles.css to change the slide formatting.
+
+See more comments below.
+
+-->
+
+  <body style='display: none'>
+
+    <section class='slides layout-widescreen'>
+
+      <article>
+        <h1>My first <span style="color:#0000cc;">RunSlide</span> presentation</h1>
+
+          <div class="presenter">
+
+	    <p>
+	      Ned Flanders
+	    </p>
+
+	    <p>
+	      Flancrest Enterprises
+	    </p>
+
+          </div>
+
+      </article>
+
+      <article>
+
+        <h3>Requirements:</h3>
+
+	<ul>
+	  <li>Google Go</li>
+	  <li>Google Chrome</li>
+	  <li>Python 3</li>
+	  <li>Perl</li>
+	  <li>Bash</li>
+	</ul>
+
+	<p>Start <code>runslide.go</code> and visit <a href="http://127.0.0.1:12345/fib.html">http://127.0.0.1:12345/fib.html</a> using Chrome</p>
+	<p>Use arrow keys, Enter, Space, Backspace to navigate. Press F11 for fullscreen mode.</p>
+
+      </article>
+
+      <article>
+
+        <h3>Hello Python</h3>
+
+<!--
+
+Each Code snippet requires an ID.
+
+The run function uses a websocket to talk to the RunSlide server.
+Parameters:
+- interpreter name ("python", "perl", ...)
+- snippet ID
+- code template (optional)
+
+The output div id needs to have the following value: snippet id name + "Out"
+
+-->
+	<div id="pySnippet" class="code" contenteditable="true">
+<pre>
+def fib(n):
+    if n &lt;= 1:
+        return n
+    return fib(n-1) + fib(n-2)
+
+print (fib(8))
+</pre>
+	</div>
+	<a href="javascript:run('python', 'pySnippet')">Run</a>
+
+	<div class="output">
+	  <pre id="pySnippetOut">OUTPUT</pre>
+	</div>
+
+      </article>
+
+      <article>
+
+        <h3>Hello Perl</h3>
+
+	<div id="plSnippet" class="code" contenteditable="true">
+<pre>
+sub fibonacci{
+  my $n=$_[0];
+  if ($n&lt;=2) {
+    1;
+  } else {
+    fibonacci($n-1)+fibonacci($n-2);
+  }
+}
+
+print fibonacci(8);
+</pre>
+	</div>
+	<a href="javascript:run('perl', 'plSnippet')">Run</a>
+
+	<div class="output">
+	  <pre id="plSnippetOut">OUTPUT</pre>
+	</div>
+
+      </article>
+
+      <article>
+
+        <h3>Hello Go</h3>
+
+	<div id="goSnippet" class="code" contenteditable="true">
+<pre>
+func  fib(n int) int {
+  if n &lt;= 1 {
+        return n
+  }
+  return fib(n-1) + fib(n-2)
+}
+
+func main() {
+  fmt.Print(fib(8))
+}
+</pre>
+	</div>
+	<a href="javascript:run('go', 'goSnippet', 'fibgo.tpl')">Run</a> (uses a code template)
+
+	<div class="output">
+	  <pre id="goSnippetOut">OUTPUT</pre>
+	</div>
+
+      </article>
+
+
+
+      <article>
+
+        <h3>Hello Bash</h3>
+
+	<div id="shSnippet" class="code" contenteditable="true">
+<pre>
+#!/bin/bash
+echo Hello World
+</pre>
+	</div>
+	<a href="javascript:run('sh', 'shSnippet')">Run</a>
+
+	<div class="output">
+	  <pre id="shSnippetOut">OUTPUT</pre>
+	</div>
+
+      </article>
+
+
+      <article>
+        <h3>Okily-dokily!</h3>
+
+          <div class="presenter">
+	    <p>
+	      Ned
+	    </p>
+	    <p class="link">
+		<a href="www.xxx.yyy">www.xxx.yyy</a>
+	    </p>
+	  </div>
+
+      </article>
+
+  </body>
+
+</html>
